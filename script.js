@@ -1,26 +1,18 @@
-//je récupère les boutons number
-const number = document.querySelector(".number");
-
-//les oppérateurs
-const opperateurButton = document.querySelector(".opperateur");
-
-//bouton reset
-const resetButton = document.querySelector(".reset");
-
-//espace d'affichage et d'ecriture
-const resultID = document.querySelector("#result");
-
 //ecrire une opération
-function write(value){
-resultID.value += value
+function writeInResult(value){
+document.getElementById('result').value += value;
 };
 
 //resultat de l'operation
 function equal(){
-
+  try {
+    document.getElementById('result').value = eval(document.getElementById('result').value);
+  } catch (e) {
+    document.getElementById('result').value = "Erreur";
+  }
 };
 
 //reset
-function clear(){
-resultID.value = " ";
+function clearResult(){
+document.querySelector('#result').value = " ";
 };
